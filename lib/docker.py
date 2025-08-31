@@ -118,7 +118,7 @@ if __name__ == '__main__':
 
     logger = enable_default_logger()
 
-    config = load_yaml('../configs/config.yaml')
+    config = load_yaml('./configs/config.yaml')
     docker_config = config.get('docker', {})
     mount_list = config.get('mounts', [])
 
