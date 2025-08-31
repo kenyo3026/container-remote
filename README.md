@@ -24,7 +24,7 @@ A powerful Python utility that creates secure Docker container bridges for AI ag
 #### From Source
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/container-remote.git
+git clone https://github.com/kenyo3026/container-remote.git
 cd container-remote
 
 # Install dependencies
@@ -37,10 +37,10 @@ pip install -e .
 #### Install directly from GitHub
 ```bash
 # Install the latest version
-pip install git+https://github.com/yourusername/container-remote.git
+pip install git+https://github.com/kenyo3026/container-remote.git
 
 # Or install a specific branch/tag
-pip install git+https://github.com/yourusername/container-remote.git@main
+pip install git+https://github.com/kenyo3026/container-remote.git@main
 ```
 
 **Dependencies:**

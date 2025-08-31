@@ -1,8 +1,7 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 LIBRARY_NAME = "container_remote"
-PACKAGE_DIR = 'lib'
 
 with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
@@ -10,8 +9,7 @@ with open('requirements.txt') as f:
 setup(
     name=LIBRARY_NAME,
     version="0.1.0",
-    packages=[LIBRARY_NAME],
-    package_dir={LIBRARY_NAME: PACKAGE_DIR},
+    packages=find_packages(),
     install_requires=install_requires,
     author="kenyo3026",
     author_email="kenyo3026@gmail.com",

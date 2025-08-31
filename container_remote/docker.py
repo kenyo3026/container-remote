@@ -6,7 +6,7 @@ from typing import List, Sequence, Union
 
 from python_on_whales import docker, Container
 
-from mount import MountSpace
+from .mount import MountSpace
 
 
 def load_yaml(filepath):
@@ -113,29 +113,4 @@ class DockerEnvRemote:
                 cmd = ['/bin/bash', '-c'] + cmd
         return self.remote_container.execute(cmd)
 
-if __name__ == '__main__':
-    from utils.logger import enable_default_logger
-
-    logger = enable_default_logger()
-
-    config = load_yaml('./configs/config.yaml')
-    docker_config = config.get('docker', {})
-    mount_list = config.get('mounts', [])
-
-    self = DockerEnvRemote(**docker_config, mounts=mount_list, logger=logger)
-
-    try:
-        while True:
-            cmd = input("Enter remote command (type 'exit' to quit): ")
-            if cmd.strip().lower() == 'exit':
-                print("Exiting remote environment...")
-                break
-            try:
-                output = self.remote(cmd)
-                print(output)
-            except Exception as e:
-                logger.error(f"Failed to execute command: {cmd}, Error: {e}")
-    finally:
-        self.remote_env.remove_container()
-        self.mount_space.remove_staging()
-        print("Docker environment and mount space cleaned up.")
+# 如需直接執行，請使用專案根目錄的 run_docker.py
